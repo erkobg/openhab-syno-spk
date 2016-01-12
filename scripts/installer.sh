@@ -42,14 +42,7 @@ preinst ()
       UH_SERVICE=false
     fi
   fi
-  synouser --del userhometest
-  #remove home directory (needed since DSM 4.1)
-  [ -e /var/services/homes/userhometest ] && rm -r /var/services/homes/userhometest
-  if [ ${UH_SERVICE} == "false" ]; then
-    echo "The User Home service is not enabled. Please enable this feature in the User control panel in DSM."
-    exit 1
-  fi
-
+ 
   cd ${TEMP_FOLDER}
   for WGET_URL in ${INSTALL_FILES}
   do
